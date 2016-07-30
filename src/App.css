@@ -1,3 +1,11 @@
+@custom-media --small (max-width: 42em);
+@custom-media --medium (min-width: 42em);
+@custom-media --large (min-width: 56.063em);
+@custom-media --x-large (min-width: 80.063em);
+
+/* Landscape Orientation */
+@custom-media --landscape (orientation: landscape) and (min-width: 30rem) and (max-height: 30rem);
+
 ::selection {
   text-shadow: none;
 }
@@ -49,22 +57,19 @@ section{
   mix-blend-mode: color-dodge;
   min-height: 20.4rem;
 
-  /*@media (--small) {
+  @media (--small) {
     min-height: 32.4rem;
-  }*/
+  }
 
-  /*@media (--landscape) {
+  @media (--landscape) {
     flex-direction: row;
     min-height: initial;
-  }*/
-  flex-direction: row;
-  height: 100vh;
+  }
 
-
-  /*@media (--medium) {
+  @media (--large) {
     flex-direction: row;
     height: 100vh;
-  }*/
+  }
 }
 
 .header {
@@ -74,9 +79,9 @@ section{
   flex: 1;
   flex-direction: column;
 
-  /*@media (--large) {*/
+  @media (--large) {
     justify-content: space-between;
-  /*}*/
+  }
 }
 
 h1 {
@@ -100,6 +105,10 @@ h2 {
   align-items: flex-end;
   justify-content: flex-end;
   max-width: 30rem;
+
+  @media (--medium) {
+    min-width: 25rem;
+  }
 }
 
 
@@ -111,10 +120,10 @@ h2 {
   flex: 1;
 
 
-  /*@media (--medium) {*/
+  @media (--medium) {
     min-width: 15rem;
     max-width: 40rem;
-  /*}*/
+  }
 }
 
 .LinkList > a {
