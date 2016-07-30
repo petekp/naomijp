@@ -1,0 +1,159 @@
+::selection {
+  text-shadow: none;
+}
+
+a,
+button,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+html, body {
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+main[role=main] {
+  margin: 0;
+}
+
+section{
+  position: relative;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #0B1223, #04071F);
+  background-position: 0 0;
+  background-size: 100%;
+  background-repeat: repeat-x;
+}
+
+.wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 87vh;
+  padding: 4vw 5vw;
+  color: #FFE79F;
+  mix-blend-mode: color-dodge;
+  min-height: 20.4rem;
+
+  /*@media (--small) {
+    min-height: 32.4rem;
+  }*/
+
+  /*@media (--landscape) {
+    flex-direction: row;
+    min-height: initial;
+  }*/
+  flex-direction: row;
+  height: 100vh;
+
+
+  /*@media (--medium) {
+    flex-direction: row;
+    height: 100vh;
+  }*/
+}
+
+.header {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex: 1;
+  flex-direction: column;
+
+  /*@media (--large) {*/
+    justify-content: space-between;
+  /*}*/
+}
+
+h1 {
+  line-height: 1.1;
+  font-weight: 700;
+  margin-left: -0.2rem;
+  margin-bottom: 3vh;
+  font-size: 7rem;
+}
+
+h2 {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: 0.3vw;
+  font-size: 2.2rem;
+  margin-bottom: 0;
+}
+
+.links {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-width: 30rem;
+}
+
+
+.LinkList {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex: 1;
+
+
+  /*@media (--medium) {*/
+    min-width: 15rem;
+    max-width: 40rem;
+  /*}*/
+}
+
+.LinkList > a {
+  position: relative;
+  letter-spacing: 0.3vw;
+  z-index: 2;
+  padding: 0.7rem 1rem;
+  margin-bottom: -0.2rem;
+  border-radius: 0 0 0 0;
+  background: transparent;
+  font-size: 1.6rem;
+  flex: 1;
+  color: #FFE79F;
+  text-decoration: none;
+  box-shadow: inset 0 0 0 0.2rem #FFE79F;
+}
+
+.LinkList > a:hover {
+  background-color: #FFE79F;
+}
+
+.LinkList > a:first-child {
+  border-radius: 10px 10px 0 0;
+}
+
+.LinkList > a:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+
+.Button{
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #FFE79F;
+  color: #444;
+  text-transform: uppercase;
+  font-weight: 700;
+}
