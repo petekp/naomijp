@@ -1,6 +1,7 @@
 var path = require('path');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
+var rucksack = require('rucksack-css');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -74,7 +75,7 @@ module.exports = {
     useEslintrc: false
   },
   postcss: function() {
-    return [autoprefixer, precss];
+    return [autoprefixer, precss, rucksack];
   },
   plugins: [
     new HtmlWebpackPlugin({
