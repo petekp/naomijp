@@ -1,0 +1,15 @@
+@custom-media --small (max-width: 42em);
+@custom-media --medium (min-width: 42em);
+@custom-media --large (min-width: 56.063em);
+@custom-media --x-large (min-width: 80.063em);
+
+/* Landscape Orientation */
+@custom-media --landscape (orientation: landscape) and (min-width: 30rem) and (max-height: 30rem);
+
+::selection {
+  text-shadow: none;
+}
+
+:root {
+  --themeColor: #FFE79F;
+}
