@@ -1,15 +1,20 @@
 @import './base.css';
 
-.Links {
+.PrimaryNavContainer {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   max-width: 20rem;
 
   @media (--medium) {
+
+    flex: 1;
     align-items: flex-end;
     justify-content: flex-end;
-    min-width: 23rem;
+  }
+
+  @media (--large) {
+    max-width: initial;
   }
 
   @media (--landscape) {
@@ -26,10 +31,9 @@
   font-weight: 600;
   text-transform: uppercase;
 
-
   @media (--medium) {
     min-width: 15rem;
-    max-width: 40rem;
+    max-width: 26rem;
   }
 }
 

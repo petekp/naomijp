@@ -10,10 +10,17 @@ input {
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  @media (--landscape) {
+    max-height: 90vh;
+    overflow: hidden;
+  }
 }
 html, body {
   min-width: 320px;
-  height: 100%;
+  min-height: 440px;
+
+
 }
 
 body {
@@ -22,7 +29,6 @@ body {
 
 main[role=main] {
   margin: 0;
-  height: 100vh;
 }
 
 section{
@@ -49,14 +55,21 @@ section{
   mix-blend-mode: color-dodge;
   min-height: 20.4rem;
 
-  @media (--small) {
-    min-height: 32.4rem;
+  @media (--short) {
+    min-height: initial;
   }
+
+  @media (--narrow) {
+
+  }
+
+
+
+
 
   @media (--landscape) {
     flex-direction: row;
     height: 100vh;
-    min-height: initial;
   }
 
   @media (--large) {

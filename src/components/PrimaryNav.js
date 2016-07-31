@@ -3,7 +3,7 @@ import './PrimaryNav.css'
 
 const PrimaryNav = (props) => {
   return (
-    <section className="Links">
+    <section className="PrimaryNavContainer">
       <nav className="PrimaryNav">
         <a href="https://medium.com/humane-roots">Medium</a>
         <a href="https://www.linkedin.com/in/njpetrash">LinkedIn</a>
