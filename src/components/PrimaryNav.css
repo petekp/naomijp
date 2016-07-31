@@ -11,6 +11,12 @@
     justify-content: flex-end;
     min-width: 23rem;
   }
+
+  @media (--landscape) {
+    align-items: flex-end;
+    justify-content: flex-end;
+    min-width: 30vw;
+  }
 }
 
 .PrimaryNav {
