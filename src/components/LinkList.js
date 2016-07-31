@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router'
+import './LinkList.css'
 
 const LinkList = (props) => {
   return (
@@ -13,4 +14,4 @@ const LinkList = (props) => {
   )
 }
 
-export default LinkList;
+export default LinkList

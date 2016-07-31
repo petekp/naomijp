@@ -2,6 +2,7 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var rucksack = require('rucksack-css');
+var postcssImport = require('postcss-import');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -75,7 +76,16 @@ module.exports = {
     useEslintrc: false
   },
   postcss: function() {
-    return [autoprefixer, precss, rucksack];
+    return [
+      postcssImport({
+        onImport: function(files) {
+          files.forEach(this.addDependency);
+        }.bind(this)
+      }),
+      autoprefixer(),
+      precss(),
+      rucksack()
+    ];
   },
   plugins: [
     new HtmlWebpackPlugin({
