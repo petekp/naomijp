@@ -13,10 +13,10 @@
 
 .LinkList {
   display: flex;
+  flex: 1;
   flex-direction: column;
   font-weight: 600;
   text-transform: uppercase;
-  flex: 1;
 
 
   @media (--medium) {
@@ -29,11 +29,11 @@
   position: relative;
   letter-spacing: 0.3vw;
   z-index: 2;
-  padding: 0.7rem 1rem;
+  padding: 1rem 1.25rem;
   margin-bottom: -0.2rem;
   border-radius: 0 0 0 0;
   background: transparent;
-  font-size: 1.6rem;
+  font-size: responsive 1rem 1.6rem;
   flex: 1;
   color: var(--themeColor);
   text-decoration: none;
