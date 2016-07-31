@@ -6,8 +6,6 @@ var postcssImport = require('postcss-import');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// TODO: hide this behind a flag and eliminate dead code on eject.
-// This shouldn't be exposed to the user.
 var isInNodeModules = 'node_modules' ===
   path.basename(path.resolve(path.join(__dirname, '..', '..')));
 var relativePath = isInNodeModules ? '../../..' : '..';
