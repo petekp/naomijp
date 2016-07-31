@@ -1,17 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router'
-import './LinkList.css'
+import './PrimaryNav.css'
 
-const LinkList = (props) => {
+const PrimaryNav = (props) => {
   return (
-    <section className="links">
-      <div className="LinkList">
+    <section className="Links">
+      <nav className="PrimaryNav">
         <a href="https://medium.com/humane-roots">Medium</a>
         <a href="https://www.linkedin.com/in/njpetrash">LinkedIn</a>
         <a href="mailto:naomi.petrash@gmail.com?subject=Hello">Email</a>
-      </div>
+      </nav>
     </section>
   )
 }
 
-export default LinkList
+export default PrimaryNav

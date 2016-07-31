@@ -1,15 +1,16 @@
 import React from 'react'
-import LinkList from './LinkList'
+import PrimaryNav from './PrimaryNav'
+import Background from './Background'
 import './App.css'
 
 const App = (props) => {
   return (
     <div>
-      <div className="background"></div>
+      <Background />
       <main role="main">
         <div className="wrapper">
           {props.children}
-          <LinkList />
+          <PrimaryNav />
         </div>
       </main>
     </div>
