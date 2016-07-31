@@ -1,4 +1,5 @@
 @import './base.css';
+@import 'reeeset';
 
 a,
 button,
@@ -60,34 +61,6 @@ section{
     flex-direction: row;
     height: 100vh;
   }
-}
-
-.header {
-  display: flex;
-  align-items: start;
-  justify-content: start;
-  flex: 1;
-  flex-direction: column;
-
-  @media (--large) {
-    justify-content: space-between;
-  }
-}
-
-h1 {
-  line-height: 1.1;
-  font-weight: 700;
-  margin-left: -0.2rem;
-  margin-bottom: 3vh;
-  font-size: responsive 5rem 7rem;
-}
-
-h2 {
-  position: relative;
-  font-weight: 500;
-  letter-spacing: 0.3vw;
-  font-size: responsive 1.8rem 2.2rem;
-  margin-bottom: 0;
 }
 
 

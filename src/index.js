@@ -1,11 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import App from './App'
+import App from './components/App'
 import Home from './components/Home'
 import Writing from './components/Writing'
 import Links from './components/Links'
-import './index.css'
 
 render((
   <Router history={browserHistory}>

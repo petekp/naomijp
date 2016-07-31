@@ -39,7 +39,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.css'],
   },
   resolveLoader: {
     root: nodeModulesPath,

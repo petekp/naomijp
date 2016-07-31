@@ -1,7 +1,5 @@
 import React from 'react'
-import LinkList from './components/LinkList'
-
-import './reeeset.min.css'
+import LinkList from './LinkList'
 import './App.css'
 
 const App = (props) => {
