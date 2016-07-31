@@ -38,6 +38,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.css'],
+    alias: {
+      reeeset: nodeModulesPath + "reeeset/dist/reeeset.min.css"
+    }
   },
   resolveLoader: {
     root: nodeModulesPath,

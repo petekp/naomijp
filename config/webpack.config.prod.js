@@ -1,5 +1,8 @@
 var path = require('path');
 var autoprefixer = require('autoprefixer');
+var precss = require('precss');
+var rucksack = require('rucksack-css');
+var postcssImport = require('postcss-import');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -16,7 +19,8 @@ var srcPath = path.resolve(__dirname, relativePath, 'src');
 var nodeModulesPath = path.join(__dirname, '..', 'node_modules');
 var indexHtmlPath = path.resolve(__dirname, relativePath, 'index.html');
 var faviconPath = path.resolve(__dirname, relativePath, 'favicon.ico');
-var buildPath = path.join(__dirname, isInNodeModules ? '../../..' : '..', 'build');
+var buildPath = path.join(__dirname, isInNodeModules ? '../../..' : '..',
+  'build');
 
 module.exports = {
   bail: true,
@@ -31,48 +35,44 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js'],
+    extensions: ['', '.js', '.css'],
+    alias: {
+      reeeset: nodeModulesPath + "reeeset/dist/reeeset.min.css"
+    }
   },
   resolveLoader: {
     root: nodeModulesPath,
     moduleTemplates: ['*-loader']
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint',
-        include: srcPath
-      }
-    ],
-    loaders: [
-      {
-        test: /\.js$/,
-        include: srcPath,
-        loader: 'babel',
-        query: require('./babel.prod')
-      },
-      {
-        test: /\.css$/,
-        include: srcPath,
-        // Disable autoprefixer in css-loader itself:
-        // https://github.com/webpack/css-loader/issues/281
-        // We already have it thanks to postcss.
-        loader: ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss')
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-        loader: 'file',
-      },
-      {
-        test: /\.(mp4|webm)$/,
-        loader: 'url?limit=10000'
-      }
-    ]
+    preLoaders: [{
+      test: /\.js$/,
+      loader: 'eslint',
+      include: srcPath
+    }],
+    loaders: [{
+      test: /\.js$/,
+      include: srcPath,
+      loader: 'babel',
+      query: require('./babel.prod')
+    }, {
+      test: /\.css$/,
+      include: srcPath,
+      // Disable autoprefixer in css-loader itself:
+      // https://github.com/webpack/css-loader/issues/281
+      // We already have it thanks to postcss.
+      loader: ExtractTextPlugin.extract('style',
+        'css?!postcss')
+    }, {
+      test: /\.json$/,
+      loader: 'json'
+    }, {
+      test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
+      loader: 'file',
+    }, {
+      test: /\.(mp4|webm)$/,
+      loader: 'url?limit=10000'
+    }]
   },
   eslint: {
     // TODO: consider separate config for production,
@@ -81,7 +81,16 @@ module.exports = {
     useEslintrc: false
   },
   postcss: function() {
-    return [autoprefixer];
+    return [
+      postcssImport({
+        onImport: function(files) {
+          files.forEach(this.addDependency);
+        }.bind(this)
+      }),
+      autoprefixer(),
+      precss(),
+      rucksack()
+    ];
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -101,7 +110,9 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': '"production"'
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
